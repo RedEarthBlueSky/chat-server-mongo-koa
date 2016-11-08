@@ -39,3 +39,5 @@ fs.readdirSync(__dirname).filter(function (file) {
 // db.Sequelize = Sequelize;
 
 module.exports = mongoose;
+module.exports.models.Message = require('./message.js')
+module.exports.models.User = require('./user.js')

@@ -1,6 +1,8 @@
 'use strict';
 
-const Message = require('./models').models.Message;
+const Models = require('./models').models;
+const Message = Models.Message;
+const User = Models.User;
 
 exports.getLatest = function* (next) {
   this.type = 'json';
@@ -8,6 +10,7 @@ exports.getLatest = function* (next) {
     const msgs = yield Message.find().sort({timestamp: -1}).limit(5);
     this.body = msgs;
   } catch (err) {
+    console.log(err);
     this.status = 500;
     this.body = err;
   }
@@ -25,10 +28,20 @@ exports.post = function* (next) {
   }
 };
 
-exports.signUp = function* (next) {
-  this.body = 'So you want to sign up';
-}
+exports.login = function* (next) {
+  this.type = 'json';
+  try {
+    const users = yield User.find();
+    this.body = users;
+  } catch (err) {
+    console.log(err);
+    this.status = 500;
+    this.body = err;
+  }
+};
 
-exports.logIn = function* (next) {
-  this.body = 'Wanna log in';
-}
+exports.signup = function* (next) {
+  let body = this.request.body;
+  let data = { username: body.username, password:body.password };
+  this.body = 'So you want to sign up';
+};

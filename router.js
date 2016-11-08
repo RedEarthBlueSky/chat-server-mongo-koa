@@ -9,8 +9,8 @@ router.get('/messages', messagesCtrl.getLatest);
 
 router.post('/messages', messagesCtrl.post);
 
-router.get('/login', messagesCtrl.logIn);
+router.get('/login', messagesCtrl.login);
 
-router.post('/sign-up', messagesCtrl.signUp);
+router.post('/signup', messagesCtrl.signup);
 
 module.exports = router;
