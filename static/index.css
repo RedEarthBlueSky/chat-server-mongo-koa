@@ -1,0 +1,20 @@
+body {
+  background-color: #333;
+  color: white;
+  font-size: 17px;
+  font-family: Verdana;
+}
+
+.time, .message, .message p {
+  float:left;
+  display: block;
+  clear:both;
+}
+.message {
+  width:100%;
+}
+.container {
+  width: 80%;
+  max-width: 764px;
+  margin: 0 auto;
+}

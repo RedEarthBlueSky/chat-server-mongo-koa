@@ -8,6 +8,10 @@ const config = require('../config.json');
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb://localhost/chat_app');
+mongoose.connection.on('error', console.error.bind(console, 'connection error'));
+mongoose.connection.once('open', function () {
+  console.log('connection established');
+});
 
 // const sequelize = new Sequelize(config.db.name, config.db.user, config.db.pass, {
 //   host: 'localhost',

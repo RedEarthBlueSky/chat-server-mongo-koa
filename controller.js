@@ -24,3 +24,11 @@ exports.post = function* (next) {
     this.body = err;
   }
 };
+
+exports.signUp = function* (next) {
+  this.body = 'So you want to sign up';
+}
+
+exports.logIn = function* (next) {
+  this.body = 'Wanna log in';
+}
